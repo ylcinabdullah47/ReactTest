@@ -3,7 +3,7 @@ import Deneme from './components/deneme.jsx';
 import Deneme2 from './components/deneme2.jsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { AiFillCopyrightCircle } from 'react-icons/ai'
 import { Routes } from 'react-router';
 import Home from './pages/Home.jsx';
@@ -163,6 +163,7 @@ function App() {
     //     </div>
 
     <>
+      <div>teststssdasd</div>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
