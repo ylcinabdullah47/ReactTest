@@ -164,6 +164,7 @@ function App() {
 
     <>
       <div>teststssdasd</div>
+      <div>teststssdasd</div>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
