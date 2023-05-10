@@ -19,8 +19,8 @@ const Test = () => {
         <>
             <button onClick={redirectFunc}>yönlendir</button>
             {
-                data.filter(dt => dt.id === id).map((dat, i) =>
-                    <div key={i}>{dat.name} </div>
+                dizi.filter(dt => dt.id == id).map((dat, i) =>
+                    <div key={i}> {dat.name} </div>
                 )
             }
 

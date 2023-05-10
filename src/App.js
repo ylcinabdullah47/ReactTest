@@ -123,6 +123,19 @@ function App() {
   //   console.log("butona tıkladın");
   //   setCount(count + 15)
   // }
+
+  const [text, setText] = useState();
+  const [message, setMessage] = useState([])
+
+  const onchangeFunc = (e) => {
+    setText(e.target.value)
+
+  }
+  const messageFunc = () => {
+    setMessage(prev => [...prev, text])
+    setText('')
+  }
+  console.log(message, "message");
   return (
     //     <div className="App">
     //       <div>test</div>
@@ -168,7 +181,7 @@ function App() {
 
 
     //     </div>
-
+    //ROUTER KULLANIMI FLİTRELEME YAPILDI
     // <>
     //   <div>teststssdasd</div>
     //   <div>teststssdasd</div>
@@ -180,18 +193,30 @@ function App() {
     //     </Routes>
     //   </BrowserRouter>
     // </>
-    <>
-      <div>teststssdasd</div>
-      <div>teststssdasd</div>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/test/:id' element={<Test />} />
-          <Route path='/router123' element={<Router123 />} />
+    // <>
+    //   <div>teststssdasd</div>
+    //   <div>teststssdasd</div>
+    //   <BrowserRouter>
+    //     <Routes>
+    //       <Route path='/' element={<Home />} />
+    //       <Route path='/test/:id' element={<Test />} />
+    //       <Route path='/router123' element={<Router123 />} />
 
-          {/* <Route path='*' element={<NotFound />} /> */}
-        </Routes>
-      </BrowserRouter>
+    //       {/* <Route path='*' element={<NotFound />} /> */}
+    //     </Routes>
+    //   </BrowserRouter>
+    // </>
+
+    <>
+      {/* //TODO APP UYGULAMSI BAŞLANGIÇ */}
+
+
+      <input value={text} onChange={onchangeFunc} type='text' placeholder='ekle' />
+      <button onClick={messageFunc}>Ekle</button>
+      {message?.map((msg, i) => (
+        <div style={{ textAlign: "center", color: "red" }} key={i}>{msg}</div>
+      ))}
+
     </>
   );
 }
