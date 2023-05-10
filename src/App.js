@@ -1,13 +1,20 @@
+import React from 'react';
+// import { } from 'react-router';
 import Sayfa47 from './components/sayfa1.jsx'
 import Deneme from './components/deneme.jsx';
 import Deneme2 from './components/deneme2.jsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { AiFillCopyrightCircle } from 'react-icons/ai'
-import { Routes } from 'react-router';
+// import { Routes } from 'react-router';
+// import { Route } from 'react-router';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import Test from './pages/Test.jsx';
+import Router123 from './pages/router123.jsx';
+// import NotFound from './NotFound';
 const names = ["Ali", "Veli", "Ayşe", "Fatma"];// başka kaynaktan alındı map kullanımı ile ilgili
 function App() {
   // HATALI ÇALIŞIYOR
@@ -162,14 +169,27 @@ function App() {
 
     //     </div>
 
+    // <>
+    //   <div>teststssdasd</div>
+    //   <div>teststssdasd</div>
+    //   <BrowserRouter>
+    //     <Routes>
+    //       <Route path='/' element={<Home />} />
+    //       <Route path='/test' element={<Test />} />
+    //       <Route></Route>
+    //     </Routes>
+    //   </BrowserRouter>
+    // </>
     <>
       <div>teststssdasd</div>
       <div>teststssdasd</div>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/test' element={<Test />} />
-          <Route></Route>
+          <Route path='/test/:id' element={<Test />} />
+          <Route path='/router123' element={<Router123 />} />
+
+          {/* <Route path='*' element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
     </>
