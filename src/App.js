@@ -10,13 +10,26 @@ import { AiFillCopyrightCircle } from 'react-icons/ai'
 // import { Routes } from 'react-router';
 // import { Route } from 'react-router';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Await } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import Test from './pages/Test.jsx';
 import Router123 from './pages/router123.jsx';
+import axios from 'axios';
 // import NotFound from './NotFound';
 const names = ["Ali", "Veli", "Ayşe", "Fatma"];// başka kaynaktan alındı map kullanımı ile ilgili
 function App() {
+  const [country, setCountry] = useState();
+
+  useEffect(() => {
+    const getCountry = async () => {
+      const data = await axios.get('https://restcountries.com/v3.1/all')
+      setCountry(data)
+    }
+    getCountry()
+  }, [])
+  console.log("country", country);
+
+
   // HATALI ÇALIŞIYOR
   //   function Example() {
   //     const [count, setCount] = useState(0);
@@ -124,98 +137,120 @@ function App() {
   //   setCount(count + 15)
   // }
 
-  const [text, setText] = useState();
-  const [message, setMessage] = useState([])
+  // const [text, setText] = useState();
+  // const [message, setMessage] = useState([])
 
-  const onchangeFunc = (e) => {
-    setText(e.target.value)
+  // const onchangeFunc = (e) => {
+  //   setText(e.target.value)
 
-  }
-  const messageFunc = () => {
-    setMessage(prev => [...prev, text])
-    setText('')
-  }
-  console.log(message, "message");
+  // }
+  // const messageFunc = () => {
+  //   setMessage(prev => [...prev, text])
+  //   setText('')
+  // }
+  // console.log(message, "message");
+  // return (
+  //   // //     <div className="App">
+  //   // //       <div>test</div>
+  //   // //       <Sayfa47 abdullah={test47} />
+  //   // //       <Deneme />
+  //   // //       <Deneme2 />
+  //   // //       <div>{test}</div>
+  //   // //       {/* //map kullanımı ile ilgili başka kaynaktan örnek */}
+  //   // //       <div>
+  //   // //         <ul >{renderListOfNames(names)}</ul>
+  //   // //       </div>
+  //   // //       {
+  //   // //         arr.map((ar) => {
+  //   // //           <div key={ar.id}>{ar.name}</div>
+  //   // //         })
+  //   // //       }
+  //   // //       {count}
+
+  //   // //       <button onClick={clickFunck}> tıkla</button>
+
+  //   // //       {/* <div>{status} </div> */}
+  //   // //       <input ref={firstRef} placeholder='ara' />
+  //   // //       <div>
+  //   // //         <p>Count: {count47}</p>
+  //   // //         <button onClick={() => setCount47(count47 + 1)}>TEST</button>
+  //   // //       </div>
+
+  //   // //       <div>
+  //   // //         <p>Count: {count123}</p>
+  //   // //         <button onClick={() => setCount123(count123 + 1)}>TEST3</button>
+  //   // //         <input value={text} onChange={(e) => setText(e.target.value)} />
+  //   // //       </div>
+
+  //   // //       {/* {memo}
+  //   // //       <input value={text33} onchange={e => setText33(e.target.value)} placeholder='ara' /> */}
+
+  //   // //       <  AiFillCopyrightCircle />
+
+  //   // // {/* //router deneme1 */}
+
+
+
+
+
+  //   // //     </div>
+  //   // //ROUTER KULLANIMI FLİTRELEME YAPILDI
+  //   // // <>
+  //   // //   <div>teststssdasd</div>
+  //   // //   <div>teststssdasd</div>
+  //   // //   <BrowserRouter>
+  //   // //     <Routes>
+  //   // //       <Route path='/' element={<Home />} />
+  //   // //       <Route path='/test' element={<Test />} />
+  //   // //       <Route></Route>
+  //   // //     </Routes>
+  //   // //   </BrowserRouter>
+  //   // // </>
+  //   // // <>
+  //   // //   <div>teststssdasd</div>
+  //   // //   <div>teststssdasd</div>
+  //   // //   <BrowserRouter>
+  //   // //     <Routes>
+  //   // //       <Route path='/' element={<Home />} />
+  //   // //       <Route path='/test/:id' element={<Test />} />
+  //   // //       <Route path='/router123' element={<Router123 />} />
+
+  //   // //       {/* <Route path='*' element={<NotFound />} /> */}
+  //   // //     </Routes>
+  //   // //   </BrowserRouter>
+  //   // // </>
+
+  //   // <>
+  //   //   {/* //TODO APP UYGULAMSI BAŞLANGIÇ */}
+
+
+  //   //   <input value={text} onChange={onchangeFunc} type='text' placeholder='ekle' />
+  //   //   <button onClick={messageFunc}>Ekle</button>
+  //   //   {message?.map((msg, i) => (
+  //   //     <div style={{ textAlign: "center", color: "red" }} key={i}>{msg}</div>
+  //   //   ))}
+
+  //   // </>
+  //   <>
+  //     {/* //BASİT APİ ÖRNEĞİ */}
+
+  //     {
+  //       country?.data?.map((dt, i) => (
+  //         <div style={{ textAlign: "center" }} key={i}>{dt.name.common} </div>
+  //       ))
+  //     }
+
+
+
+
+  //   </>
+  // );
   return (
-    //     <div className="App">
-    //       <div>test</div>
-    //       <Sayfa47 abdullah={test47} />
-    //       <Deneme />
-    //       <Deneme2 />
-    //       <div>{test}</div>
-    //       {/* //map kullanımı ile ilgili başka kaynaktan örnek */}
-    //       <div>
-    //         <ul >{renderListOfNames(names)}</ul>
-    //       </div>
-    //       {
-    //         arr.map((ar) => {
-    //           <div key={ar.id}>{ar.name}</div>
-    //         })
-    //       }
-    //       {count}
-
-    //       <button onClick={clickFunck}> tıkla</button>
-
-    //       {/* <div>{status} </div> */}
-    //       <input ref={firstRef} placeholder='ara' />
-    //       <div>
-    //         <p>Count: {count47}</p>
-    //         <button onClick={() => setCount47(count47 + 1)}>TEST</button>
-    //       </div>
-
-    //       <div>
-    //         <p>Count: {count123}</p>
-    //         <button onClick={() => setCount123(count123 + 1)}>TEST3</button>
-    //         <input value={text} onChange={(e) => setText(e.target.value)} />
-    //       </div>
-
-    //       {/* {memo}
-    //       <input value={text33} onchange={e => setText33(e.target.value)} placeholder='ara' /> */}
-
-    //       <  AiFillCopyrightCircle />
-
-    // {/* //router deneme1 */}
-
-
-
-
-
-    //     </div>
-    //ROUTER KULLANIMI FLİTRELEME YAPILDI
-    // <>
-    //   <div>teststssdasd</div>
-    //   <div>teststssdasd</div>
-    //   <BrowserRouter>
-    //     <Routes>
-    //       <Route path='/' element={<Home />} />
-    //       <Route path='/test' element={<Test />} />
-    //       <Route></Route>
-    //     </Routes>
-    //   </BrowserRouter>
-    // </>
-    // <>
-    //   <div>teststssdasd</div>
-    //   <div>teststssdasd</div>
-    //   <BrowserRouter>
-    //     <Routes>
-    //       <Route path='/' element={<Home />} />
-    //       <Route path='/test/:id' element={<Test />} />
-    //       <Route path='/router123' element={<Router123 />} />
-
-    //       {/* <Route path='*' element={<NotFound />} /> */}
-    //     </Routes>
-    //   </BrowserRouter>
-    // </>
-
     <>
-      {/* //TODO APP UYGULAMSI BAŞLANGIÇ */}
+
+      <div>test2</div>
 
 
-      <input value={text} onChange={onchangeFunc} type='text' placeholder='ekle' />
-      <button onClick={messageFunc}>Ekle</button>
-      {message?.map((msg, i) => (
-        <div style={{ textAlign: "center", color: "red" }} key={i}>{msg}</div>
-      ))}
 
     </>
   );
