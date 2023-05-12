@@ -247,13 +247,17 @@ function App() {
   // );
   return (
     <>
-
-      <div>test2</div>
+      <div> TESTST: {<Ad2 />} </div>
+      <Ad />
+      <div><Ad3 /></div>
 
 
 
     </>
   );
 }
+const Ad = () => <h1>abdullah1</h1>
+const Ad2 = () => <h1>abdullah12</h1>
+const Ad3 = () => <h1>abdullah123</h1>
 
 export default App;
